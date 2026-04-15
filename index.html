@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MrRise Browser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="toolbar" role="banner">
+      <button id="backBtn" title="Back" aria-label="Back">◀</button>
+      <button id="forwardBtn" title="Forward" aria-label="Forward">▶</button>
+      <button id="reloadBtn" title="Reload" aria-label="Reload">⟳</button>
+      <button id="homeBtn" title="Home" aria-label="Home">⌂</button>
+
+      <form id="addressForm" class="address-form" autocomplete="off">
+        <input
+          id="addressInput"
+          type="text"
+          placeholder="Enter URL or search query"
+          spellcheck="false"
+          aria-label="Address"
+        />
+      </form>
+
+      <button id="goBtn" title="Go" aria-label="Go">Go</button>
+      <button id="bookmarkBtn" title="Bookmark" aria-label="Bookmark">☆</button>
+      <button id="showBookmarksBtn" title="Show bookmarks" aria-label="Show bookmarks">★</button>
+    </header>
+
+    <main class="browser-shell">
+      <aside id="bookmarksPanel" class="bookmarks hidden" aria-label="Bookmarks panel">
+        <div class="bookmarks-header">
+          <h2>Bookmarks</h2>
+          <button id="clearBookmarksBtn">Clear</button>
+        </div>
+        <ul id="bookmarksList"></ul>
+      </aside>
+
+      <section class="content">
+        <div id="statusBar" class="status">Ready.</div>
+        <iframe
+          id="webview"
+          title="Web content"
+          sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      </section>
+    </main>
+
+    <template id="bookmarkItemTemplate">
+      <li>
+        <button class="bookmark-link"></button>
+        <button class="bookmark-delete" title="Delete bookmark" aria-label="Delete bookmark">✕</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
